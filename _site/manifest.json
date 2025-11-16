@@ -41,6 +41,36 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/Web-Api/概述.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/Web-Api/概述.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/Web-Api/绑定源推理.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/Web-Api/绑定源推理.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/Web-Api/自动模型验证-400响应.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/Web-Api/自动模型验证-400响应.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "ASP-NET-Core/toc.yml",
       "output": {
@@ -49,6 +79,16 @@
         },
         ".json": {
           "relative_path": "ASP-NET-Core/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/上传文件/1.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/上传文件/1.html"
         }
       },
       "version": ""
@@ -129,6 +169,36 @@
       "output": {
         ".html": {
           "relative_path": "ASP-NET-Core/模型绑定/模型验证.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/身份认证/1.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/身份认证/1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/身份认证/2.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/身份认证/2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/身份认证/JWT.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/身份认证/JWT.html"
         }
       },
       "version": ""
@@ -272,6 +342,16 @@
       "output": {
         ".html": {
           "relative_path": "CSharp/关键字/with.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "CSharp/关键字/常用运算符.md",
+      "output": {
+        ".html": {
+          "relative_path": "CSharp/关键字/常用运算符.html"
         }
       },
       "version": ""
