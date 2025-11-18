@@ -598,6 +598,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/创建和删除API.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/创建和删除API.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/EF-Core/创建和配置模型.md",
       "output": {
         ".html": {
@@ -608,10 +618,40 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/单个查询与拆分查询.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/单个查询与拆分查询.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/EF-Core/备用键.md",
       "output": {
         ".html": {
           "relative_path": "docs/EF-Core/备用键.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/简单日志记录.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/简单日志记录.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/跟踪与 No-Tracking 查询.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/跟踪与 No-Tracking 查询.html"
         }
       },
       "version": ""
@@ -878,6 +918,16 @@
         },
         ".json": {
           "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "软件架构和设计/DevOps.md",
+      "output": {
+        ".html": {
+          "relative_path": "软件架构和设计/DevOps.html"
         }
       },
       "version": ""
