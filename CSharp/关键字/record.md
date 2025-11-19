@@ -195,3 +195,13 @@ Console.WriteLine(s2.Total);   // 输出 50，正确
 
 一句话：**用了就回不去**。  
 下次写 DTO，直接 `record` 起手，准没错！
+
+完全正确。  
+record 只是编译器提供的语法糖：
+
+1. 编译后就是普通的 class 或 struct，运行时不存在“record”这一概念 。  
+2. 如果声明的是 `record class`，编译器会额外合成一个 **protected 无参构造函数**，供反射/序列化使用；同时把所有成员（Equals、GetHashCode、==、!=、ToString 等）改成“值相等”语义 。  
+3. 正因为它重写了 Equals 和运算符，EF Core 的变更跟踪器无法再用“引用是否相同”来判断实体是否同一实例，官方文档明确说明：**record 不适合做 EF Core 实体类型** 。
+
+一句话：  
+“record = 编译期样板代码生成器 + 值相等语义”，爽在写 DTO、ViewModel；离 EF Core 实体远点。
