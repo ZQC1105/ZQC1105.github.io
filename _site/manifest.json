@@ -1,5 +1,5 @@
 {
-  "source_base_path": "D:/快捷键/重要项目/Git/zqc1105.github.io-1",
+  "source_base_path": "E:/Git/DocFX/zqc1105.github.io",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -175,6 +175,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/路由/终结点路由.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/路由/终结点路由.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/路由/路由模板.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/路由/路由模板.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "ASP-NET-Core/身份认证/1.md",
       "output": {
         ".html": {
@@ -215,6 +235,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "ASP-NET-Core/身份认证/邮箱注册确认和恢复.md",
+      "output": {
+        ".html": {
+          "relative_path": "ASP-NET-Core/身份认证/邮箱注册确认和恢复.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "CSharp/Debug/反编译可执行性文件.md",
       "output": {
         ".html": {
@@ -239,6 +269,16 @@
       "output": {
         ".html": {
           "relative_path": "CSharp/Http/HttpClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "CSharp/Http/HttpClientJsonExtensions.md",
+      "output": {
+        ".html": {
+          "relative_path": "CSharp/Http/HttpClientJsonExtensions.html"
         }
       },
       "version": ""
@@ -288,10 +328,40 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "CSharp/关键字/Class.md",
+      "output": {
+        ".html": {
+          "relative_path": "CSharp/关键字/Class.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "CSharp/关键字/Class与Struct.md",
+      "output": {
+        ".html": {
+          "relative_path": "CSharp/关键字/Class与Struct.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "CSharp/关键字/Init.md",
       "output": {
         ".html": {
           "relative_path": "CSharp/关键字/Init.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "CSharp/关键字/Record与Struct.md",
+      "output": {
+        ".html": {
+          "relative_path": "CSharp/关键字/Record与Struct.html"
         }
       },
       "version": ""
@@ -332,6 +402,16 @@
       "output": {
         ".html": {
           "relative_path": "CSharp/关键字/required.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "CSharp/关键字/required和record.md",
+      "output": {
+        ".html": {
+          "relative_path": "CSharp/关键字/required和record.html"
         }
       },
       "version": ""
@@ -412,6 +492,16 @@
       "output": {
         ".html": {
           "relative_path": "CSharp/字符串/Newtonsoft.Json.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "CSharp/字符串/Newtonsoft.Json默认行为.md",
+      "output": {
+        ".html": {
+          "relative_path": "CSharp/字符串/Newtonsoft.Json默认行为.html"
         }
       },
       "version": ""
@@ -558,6 +648,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/Include.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/Include.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/EF-Core/N加1.md",
       "output": {
         ".html": {
@@ -598,6 +698,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/一对一.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/一对一.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/关系术语词汇表.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/关系术语词汇表.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/EF-Core/创建和删除API.md",
       "output": {
         ".html": {
@@ -618,6 +738,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/单个include数据重复.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/单个include数据重复.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/EF-Core/单个查询与拆分查询.md",
       "output": {
         ".html": {
@@ -632,6 +762,36 @@
       "output": {
         ".html": {
           "relative_path": "docs/EF-Core/备用键.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/多对多.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/多对多.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/投影跟踪.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/投影跟踪.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/EF-Core/数据种子设定.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/EF-Core/数据种子设定.html"
         }
       },
       "version": ""
@@ -718,6 +878,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "docs/SQL-Server/JOIN.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/SQL-Server/JOIN.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "docs/SQL-Server/Transact-SQL.md",
       "output": {
         ".html": {
@@ -732,6 +902,16 @@
       "output": {
         ".html": {
           "relative_path": "docs/SQL-Server/数据库.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/SQL-Server/索引.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/SQL-Server/索引.html"
         }
       },
       "version": ""
