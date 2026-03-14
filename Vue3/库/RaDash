@@ -1,0 +1,376 @@
+## Radash 功能完整总结
+
+**Radash** 是一个现代化的 TypeScript 工具库，可以看作是 **Lodash 的替代品**，专门为 TypeScript 设计，提供更好的类型支持和更现代的 API。以下是完整的功能分类总结：
+
+## 一、数组操作（Array）
+
+| 功能 | 函数 | 作用 | 类似 LINQ |
+|------|------|------|-----------|
+| **去重** | `unique()` | 数组去重 | `Distinct()` |
+| **分组** | `group()` | 按条件分组 | `GroupBy()` |
+| **排序** | `sort()` | 数组排序 | `OrderBy()` |
+| **打乱** | `shuffle()` | 随机打乱 | |
+| **取第一个** | `first()` | 获取第一个元素 | `First()` |
+| **取最后一个** | `last()` | 获取最后一个元素 | `Last()` |
+| **范围** | `range()` | 生成数字范围 | `Range()` |
+| **替换** | `replace()` | 替换元素 | |
+| **选择** | `select()` | 过滤并转换 | `Where()` + `Select()` |
+
+```typescript
+import { unique, group, sort, range } from 'radash'
+
+// unique - 对象数组去重
+const users = [
+  { id: 1, name: 'Alice' },
+  { id: 2, name: 'Bob' },
+  { id: 1, name: 'Alice' }
+]
+const uniqueUsers = unique(users, u => u.id) // 按id去重
+
+// group - 分组
+const grouped = group(users, u => u.role)
+// { admin: [...], user: [...] }
+
+// sort - 排序
+const sorted = sort(users, u => u.age, 'desc')
+
+// range - 生成数组
+const numbers = range(1, 5) // [1, 2, 3, 4, 5]
+const pages = range(1, 10) // 分页用
+```
+
+## 二、对象操作（Object）
+
+| 功能 | 函数 | 作用 | 类似 LINQ |
+|------|------|------|-----------|
+| **选取属性** | `pick()` | 选取指定属性 | |
+| **排除属性** | `omit()` | 排除指定属性 | |
+| **设置值** | `set()` | 设置嵌套属性 | |
+| **获取值** | `get()` | 安全获取嵌套属性 | |
+| **深克隆** | `clone()` | 深拷贝对象 | |
+| **合并** | `merge()` | 合并对象 | |
+| **映射值** | `mapValues()` | 映射对象值 | |
+| **筛选** | `filter()` | 筛选对象属性 | |
+
+```typescript
+import { pick, omit, get, set, clone, merge } from 'radash'
+
+const user = {
+  id: 1,
+  name: 'John',
+  age: 30,
+  address: {
+    city: 'Beijing',
+    street: 'Main St'
+  }
+}
+
+// pick - 只取需要的字段
+const basic = pick(user, ['id', 'name']) // { id: 1, name: 'John' }
+
+// omit - 排除敏感字段
+const safeUser = omit(user, ['age']) // 去掉年龄
+
+// get - 安全获取嵌套属性
+const city = get(user, 'address.city') // 'Beijing'
+const zip = get(user, 'address.zip', 'default') // 'default'
+
+// set - 修改嵌套属性
+const updated = set(user, 'address.city', 'Shanghai')
+
+// clone - 深拷贝
+const copy = clone(user)
+
+// merge - 合并
+const merged = merge(user, { age: 31, phone: '123456' })
+```
+
+## 三、函数式编程（Functional）
+
+| 功能 | 函数 | 作用 | 类似 LINQ |
+|------|------|------|-----------|
+| **管道** | `pipe()` | 从左到右组合函数 | |
+| **组合** | `compose()` | 从右到左组合函数 | |
+| **柯里化** | `curry()` | 函数柯里化 | |
+| **防抖** | `debounce()` | 防抖 | |
+| **节流** | `throttle()` | 节流 | |
+| **重试** | `retry()` | 失败重试 | |
+| **记忆化** | `memo()` | 缓存结果 | |
+| **链式** | `chain()` | 链式调用 | |
+
+```typescript
+import { pipe, retry, memo, debounce } from 'radash'
+
+// pipe - 数据管道
+const result = pipe(
+  [1, 2, 3, 4],
+  arr => arr.map(x => x * 2),
+  arr => arr.filter(x => x > 4),
+  arr => arr.reduce((sum, x) => sum + x, 0)
+) // 12
+
+// retry - 失败重试
+const fetchWithRetry = retry({ times: 3 }, async () => {
+  const res = await fetch('/api/data')
+  return res.json()
+})
+
+// memo - 缓存计算结果
+const expensiveCalc = memo((n: number) => {
+  return fibonacci(n) // 只计算一次
+})
+
+// debounce - 防抖
+const save = debounce({ delay: 500 }, (value: string) => {
+  console.log('Saving:', value)
+})
+```
+
+## 四、异步操作（Async）
+
+| 功能 | 函数 | 作用 | 类似 LINQ |
+|------|------|------|-----------|
+| **并行** | `parallel()` | 控制并发数 | |
+| **串行** | `series()` | 顺序执行 | |
+| **延迟** | `sleep()` | 等待指定时间 | |
+| **错误处理** | `tryit()` | 优雅的错误处理 | `TryParse` |
+| **重试** | `retry()` | 失败重试 | |
+| **全部** | `all()` | Promise.all 增强 | |
+
+```typescript
+import { parallel, sleep, tryit } from 'radash'
+
+// sleep - 延迟
+await sleep(1000) // 等待1秒
+
+// parallel - 并发控制
+const users = await parallel(3, [1, 2, 3, 4, 5], async (id) => {
+  await sleep(500) // 模拟延迟
+  return await fetch(`/api/users/${id}`)
+}) // 同时最多3个请求
+
+// tryit - 无需 try-catch
+const [error, data] = await tryit(fetch('/api/data'))()
+if (error) {
+  console.error('Failed:', error)
+} else {
+  console.log('Success:', data)
+}
+
+// 结合使用
+const fetchWithDelay = async () => {
+  await sleep(1000)
+  const [err, res] = await tryit(api.get('/users'))()
+  return res
+}
+```
+
+## 五、字符串操作（String）
+
+| 功能 | 函数 | 作用 |
+|------|------|------|
+| **驼峰** | `camel()` | 转驼峰命名 |
+| **帕斯卡** | `pascal()` | 转帕斯卡命名 |
+| **下划线** | `snake()` | 转下划线命名 |
+| **连字符** | `kebab()` | 转连字符命名 |
+| **标题** | `title()` | 转标题格式 |
+| **修剪** | `trim()` | 去除空格 |
+| **模板** | `template()` | 字符串模板 |
+
+```typescript
+import { camel, pascal, snake, kebab, title, template } from 'radash'
+
+camel('hello-world') // 'helloWorld'
+pascal('hello-world') // 'HelloWorld'
+snake('helloWorld') // 'hello_world'
+kebab('helloWorld') // 'hello-world'
+title('hello world') // 'Hello World'
+
+// 模板字符串
+const tpl = template('Hello, {{name}}!')
+tpl({ name: 'Radash' }) // 'Hello, Radash!'
+```
+
+## 六、类型守卫（Type Guards）
+
+| 功能 | 函数 | 作用 |
+|------|------|------|
+| **数组** | `isArray()` | 检查数组 |
+| **字符串** | `isString()` | 检查字符串 |
+| **数字** | `isNumber()` | 检查数字 |
+| **对象** | `isObject()` | 检查对象 |
+| **函数** | `isFunction()` | 检查函数 |
+| **日期** | `isDate()` | 检查日期 |
+| **Promise** | `isPromise()` | 检查 Promise |
+| **空值** | `isEmpty()` | 检查空值 |
+
+```typescript
+import { isString, isNumber, isEmpty } from 'radash'
+
+function process(value: unknown) {
+  if (isString(value)) {
+    // value 被推断为 string
+    return value.toUpperCase()
+  }
+  
+  if (isNumber(value)) {
+    // value 被推断为 number
+    return value.toFixed(2)
+  }
+  
+  if (isEmpty(value)) {
+    return 'empty'
+  }
+}
+```
+
+## 七、数学计算（Math）
+
+| 功能 | 函数 | 作用 |
+|------|------|------|
+| **求和** | `sum()` | 数组求和 |
+| **平均值** | `average()` | 计算平均值 |
+| **最大值** | `max()` | 最大值 |
+| **最小值** | `min()` | 最小值 |
+| **随机数** | `random()` | 生成随机数 |
+| **取整** | `round()` | 四舍五入 |
+
+```typescript
+import { sum, average, max, min, random } from 'radash'
+
+const numbers = [1, 2, 3, 4, 5]
+
+sum(numbers) // 15
+average(numbers) // 3
+max(numbers) // 5
+min(numbers) // 1
+random(1, 10) // 随机整数
+```
+
+## 八、实际应用场景
+
+### **场景1：数据处理管道**
+```typescript
+import { pipe, group, sort, unique, mapValues } from 'radash'
+
+const processUserData = (users: User[]) => pipe(
+  users,
+  // 1. 去重
+  users => unique(users, u => u.id),
+  // 2. 按部门分组
+  users => group(users, u => u.dept),
+  // 3. 每个部门内按年龄排序
+  groups => mapValues(groups, users => sort(users, u => u.age)),
+  // 4. 计算每个部门平均年龄
+  groups => mapValues(groups, users => ({
+    users,
+    avgAge: average(users.map(u => u.age))
+  }))
+)
+```
+
+### **场景2：API 请求增强**
+```typescript
+import { tryit, retry, sleep } from 'radash'
+
+const fetchWithRetry = async (url: string) => {
+  // 先等待1秒
+  await sleep(1000)
+  
+  // 失败重试3次
+  const [error, data] = await tryit(
+    retry({ times: 3 }, () => fetch(url))
+  )()
+  
+  if (error) {
+    console.error('最终失败:', error)
+    return null
+  }
+  
+  return data
+}
+```
+
+### **场景3：表单数据处理**
+```typescript
+import { pick, omit, isNullOrEmpty } from 'radash'
+
+const submitForm = (formData: any) => {
+  // 1. 移除空字段
+  const cleaned = omit(formData, (value) => isNullOrEmpty(value))
+  
+  // 2. 只取需要的字段
+  const apiData = pick(cleaned, ['name', 'email', 'age'])
+  
+  // 3. 发送请求
+  return api.post('/user', apiData)
+}
+```
+
+## 九、Radash vs Lodash 对比
+
+| 特性 | Radash | Lodash |
+|------|--------|--------|
+| **TypeScript** | ✅ 原生完美支持 | ❌ 需要额外类型 |
+| **Tree-shaking** | ✅ 完美 | ⚠️ 部分支持 |
+| **体积** | 小 (~5kb) | 大 (~70kb) |
+| **API 设计** | 现代化、函数式 | 传统 |
+| **学习曲线** | 平缓 | 较陡 |
+| **流行度** | 新兴 | 成熟 |
+| **C# LINQ 风格** | ✅ 相似 | ⚠️ 部分相似 |
+
+## 十、最佳实践组合
+
+### **Vue 3 + Radash + VueUse**
+```typescript
+import { ref, computed } from 'vue'
+import { useLocalStorage } from '@vueuse/core'
+import { unique, group, sort, tryit } from 'radash'
+
+// 响应式数据 + 工具函数
+const users = useLocalStorage<User[]>('users', [])
+
+// 计算属性中使用 Radash
+const processedUsers = computed(() => pipe(
+  users.value,
+  users => unique(users, u => u.id),
+  users => group(users, u => u.role),
+  groups => mapValues(groups, users => sort(users, u => u.name))
+))
+
+// 异步操作
+const fetchUsers = async () => {
+  const [error, data] = await tryit(api.get('/users'))()
+  if (!error && data) {
+    users.value = data
+  }
+}
+```
+
+## 十一、学习路线
+
+1. **基础必备**：
+   - `unique`、`group`、`sort`
+   - `pick`、`omit`、`get`
+   - `sleep`、`tryit`
+
+2. **进阶使用**：
+   - `pipe`、`retry`
+   - `parallel`、`memo`
+   - `mapValues`、`filter`
+
+3. **高级技巧**：
+   - 组合多个函数
+   - 自定义管道
+   - 与 VueUse 集成
+
+## 总结
+
+**Radash 核心价值**：
+- ✅ **TypeScript 优先** - 类型完美
+- ✅ **轻量高效** - Tree-shaking 友好
+- ✅ **现代 API** - 函数式编程风格
+- ✅ **LINQ 类似** - C# 开发者友好
+- ✅ **零依赖** - 不依赖其他库
+
+**一句话总结**：Radash 是 Lodash 的现代替代品，如果你重视类型安全和代码体积，它会是你最好的选择！
